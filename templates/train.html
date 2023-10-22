@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px 0px 0px 0px;
+}
+
+h1#inl {
+  display: inline;
+}
+
+.dv {
+  background-color: black;
+  color: cornsilk;
+  margin-bottom: 0px;
+  padding: 3px 3px 3px 3px;
+  height: 10%;
+}
+
+.dv1 {
+
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: -7px -7px -7px -7px;
+  background-size: cover;
+  position: relative;
+}
+
+.bun2 {
+  border: 2px solid rgb(100, 85, 85);
+  color: rgb(8, 6, 6);
+  background-color: rgba(48, 139, 112, 0.5);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bun3 {
+  border: 2px solid rgb(100, 85, 85);
+  color: rgb(8, 6, 6);
+  background-color: rgba(48, 139, 112, 0.5);
+  padding: 6px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bun {
+  border: 2px solid rgb(105, 92, 92);
+  color: rgb(19, 15, 15);
+  background-color: rgba(84, 129, 129,0.7);
+  padding: 8px 20px;
+  border-radius: 16px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.ending {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  background-color: rgba(45, 63, 230,0.5);
+  text-align: center;
+}
+
+.cuteblock {
+  background-color: rgba(224, 158, 13, 0.5);
+  width: 40%;
+  height: 50%;
+  border-radius: 16px 16px 16px 16px;
+
+}
+
+center#inl1 {
+  display: inline;
+}
+</style>
+
+</head>
+<body style="background-image : url('static/cbg.jpg'); background-attachment: fixed;">
+
+
+<div class="dv1">
+    <div class='dv' >
+        <center id='inl1'>
+      <img src="static/pr1.jpeg" height="3%" width="2%"/><h1 id= 'inl' style="text-align:center">Breast Cancer Detection</h1></center>
+      <a href="/../" style="position:absolute; right:1%">
+        <button class="bun3"  type="button" style = "background-color: rgba(143, 170, 206,0.5)">Back</button>
+        </a>
+    </div>
+      
+  <br/>
+  <br/>  
+  {% ifequal testresult 'a' %}
+  <center>
+    <a href="">
+    <button class="bun" type="button" style="background-color: rgba(126, 30, 13, 0.3); color: black">Upload biopsy Image of cancer</button>
+    </a>
+
+<form method="post" class="cuteblock" enctype="multipart/form-data">
+  {% csrf_token %}
+<label>
+   <h3 class="bun2" background-color= #8470ff> Select Image...</h3>
+   <p>     <input type="file" name="document" /></p>
+   <br/>
+   <select name="Magnification">
+      <option value="Select magnification">Select magnification</option>
+      <option value="40X">40X</option>
+      <option value="100X">100X</option>
+      <option value="200X">200X</option>
+      <option value="400X">400X</option>
+    </select>
+   </label>
+   <br/>
+   <br/>
+   <select name="reslt">
+      <option value="Select Result">Select Result</option>
+      <option value="benign">Benign</option>
+      <option value="malignant">Malignant</option>
+    </select>
+    <br/>
+   <br/>
+   <i id="demo"></i><button id='mybutn' onclick="displayDate()" type="submit" class="bun" background-color='gray'>Upload Image </button>
+   
+   </center>
+
+   </p>
+</form>
+{% else %}
+{% ifequal request.method 'POST' %}
+<center>
+  Uploaded Image:
+  <br>
+  <image src="{{test_image}}" style="width:25%" />
+  <br>
+  Given Result: {{testresult}}
+  <br/>
+  <br/>
+  <strong>This image is successfully trained. </strong>
+{% endifequal %}
+{% endifequal %}
+</center>
+<!--<div class="ending">
+    <a href="/../">
+    <button class="bun2" type="button">Home</button>
+    </a>
+</div>-->
+</div>
+<script>
+function displayDate() {
+  document.getElementById("demo").className="fa fa-refresh fa-spin";
+  document.getElementById("mybutn").innerHTML="Processing image";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="static/pr.jpeg" type="image/jpeg" />
+<title>Breast Cancer Detection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0% 0% 0% 0%;
+  padding: 0% 0% 0% 0%;
+}
+h1#inl {
+  display: inline;
+}
+.dv1 {
+  background-image: url('static/cbg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+.dv {
+  background-color: black;
+  color: cornsilk;
+  margin-bottom: -20px;
+  padding: 3px 3px 3px 3px;
+  height: 7%;
+}
+.bun {
+  border: 2px solid rgb(128, 128, 128);
+  color: rgba(5, 24, 49);
+  background-color: rgba(204, 192, 137,0.7);
+  padding: 8px 20px;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.bun2 {
+  border: 2px solid rgb(128, 128, 128);
+  color: rgba(5, 24, 49);
+  background-color: rgba(204, 192, 137,0.5);
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+</style>
+<body style="background-image: url('static/cbg.jpg'); background-attachment: fixed;">
+<div class='dv' >
+  <center>
+<img src="static/pr1.jpeg" height="3%" width="2%"/><h1 id= 'inl' style="text-align:center">Breast Cancer Detection</h1></center></div>
+<div class="dv1">
+<center>
+  <h1>Breast Cancer Detection using biopsy images</h1>
+    <a href="/test">
+    <button class="bun"  type="button">Prediction</button>
+    </a>
+    <br/>
+    <p>Click on <strong>PREDICTION</strong> to upload biopsy image of tumor and get prediction whether it is <strong>benign</strong> or <strong>malignant</strong>.</p>
+
+<img src="static/bcaw.jpeg" height="30%" width="25%" />
+    <br/>
+  <br/>
+    <h2>Help us!</h2>
+    <p>Click on <strong>TRAIN</strong> to upload biopsy image of tumor and train predictor whether it is <strong>benign</strong> or <strong>malignant</strong>.</p>
+
+    <a href="/train">
+    <button class="bun2" type="button">Train</button>
+    </a>
+    
+    </center>
+
+</div>
+</body>
+</html>

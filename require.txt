@@ -1,0 +1,9 @@
+pip install Pillow==5.3.0
+pip install scipy==1.2.0
+pip install Cython==0.29.2
+pip install numpy==1.16.0
+pip install scikit-learn==0.20.1
+pip install scikit-image==0.14.2
+pip install mahotas==1.4.5
+pip install Django==2.1.5
+pip install dask==1.0.0
